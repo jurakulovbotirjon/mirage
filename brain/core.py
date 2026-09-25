@@ -1,6 +1,7 @@
 from datetime import datetime
-from memory.store import remember, recall
+
 from brain.llm import ask_llm
+from memory.store import recall, remember
 
 
 def think(command: str) -> str:

@@ -1,6 +1,6 @@
-from rich import print
 from brain.core import think
 from config.logger import logger
+from rich import print
 from voice.speak import speak
 
 speak("Hello. I am Mirage.")

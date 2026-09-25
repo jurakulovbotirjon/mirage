@@ -1,5 +1,6 @@
 import ollama
 
+
 def ask_llm(prompt):
     response = ollama.chat(
         model="qwen3",
@@ -13,13 +14,10 @@ You are a personal AI assistant.
 Keep responses concise.
 Be helpful.
 Remember your name is Mirage.
-"""
+""",
             },
-            {
-                "role": "user",
-                "content": prompt
-            }
-        ]
+            {"role": "user", "content": prompt},
+        ],
     )
 
     return response["message"]["content"]

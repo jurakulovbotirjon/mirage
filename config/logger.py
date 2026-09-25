@@ -4,9 +4,9 @@ from pathlib import Path
 Path("logs").mkdir(exist_ok=True)
 
 logging.basicConfig(
-	filename="logs/mirage.log",
-	level=logging.INFO,
-	format="%(asctime)s | %(levelname)s | %(message)s"
+    filename="logs/mirage.log",
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(message)s",
 )
 
 logger = logging.getLogger("Mirage")
