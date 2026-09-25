@@ -13,10 +13,15 @@ src/mirage/context/device/__init__.py
 src/mirage/context/environment/__init__.py
 src/mirage/context/network/__init__.py
 src/mirage/core/__init__.py
+src/mirage/core/application.py
+src/mirage/core/events.py
+src/mirage/core/orchestrator.py
 src/mirage/infrastructure/__init__.py
 src/mirage/knowledge/__init__.py
 src/mirage/memory/__init__.py
 src/mirage/models/__init__.py
+src/mirage/models/base.py
+src/mirage/models/mock.py
 src/mirage/personality/__init__.py
 src/mirage/retrieval/__init__.py
 src/mirage/security/__init__.py

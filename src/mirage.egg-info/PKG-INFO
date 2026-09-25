@@ -12,5 +12,6 @@ Requires-Dist: rich>=13.9
 Provides-Extra: dev
 Requires-Dist: pytest>=8.3; extra == "dev"
 Requires-Dist: pytest-cov>=6.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.25; extra == "dev"
 Requires-Dist: ruff>=0.9; extra == "dev"
 Requires-Dist: mypy>=1.14; extra == "dev"
