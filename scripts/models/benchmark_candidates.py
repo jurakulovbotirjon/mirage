@@ -49,10 +49,10 @@ CASES = [
         "review_hint": "Expected result: 323.",
     },
     {
-        "id": "uzbek_language",
-        "system": "Answer in Uzbek (Latin script), using only the supplied passage.",
-        "user": "Matn: O'rgimchaklar va chayonlar araxnidlardir; voyaga yetganlarida sakkizta oyog'i bo'ladi.\nSavol: Qaysi jonivorlarning sakkizta oyog'i bor?",
-        "review_hint": "Should answer in Uzbek and identify spiders and scorpions.",
+        "id": "instruction_following",
+        "system": "Follow the user's exact output constraints. Use only the supplied facts.",
+        "user": "Facts: Mirage is a local assistant. It stores documents on this computer.\nTask: Give exactly two bullet points. Each bullet must contain one fact. Do not add a third bullet.",
+        "review_hint": "Must produce exactly two bullets, one fact each, without unsupported additions.",
     },
 ]
 
