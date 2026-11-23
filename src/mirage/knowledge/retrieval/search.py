@@ -30,18 +30,8 @@ def retrieve(
     terms = re.findall(r"[^\W_]+", query, flags=re.UNICODE)
     if not terms:
         return []
-    expression = " OR ".join(f'"{term.replace(chr(34), chr(34) * 2)}"' for term in terms)
-    rows = store._connection.execute(
-        """
-        SELECT c.*, bm25(knowledge_chunks_fts) AS relevance
-        FROM knowledge_chunks_fts AS f
-        JOIN knowledge_chunks AS c ON c.chunk_id = f.chunk_id
-        WHERE knowledge_chunks_fts MATCH ?
-        ORDER BY relevance ASC
-        LIMIT ?
-        """,
-        (expression, limit),
-    ).fetchall()
+    expression = " OR ".join(f'"{term}"' for term in terms)
+    rows = store.search_rows(expression, limit)
 
     hits: list[RetrievalHit] = []
     for row in rows:
