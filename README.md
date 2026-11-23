@@ -18,7 +18,7 @@ The repository currently contains:
 - Documentation for candidate botanical sources and their licensing/provenance review.
 - A canonical repository-structure proposal in `docs/01-architecture/REPOSITORY_STRUCTURE.md`.
 
-The first local knowledge pipeline is now implemented: checksum-verified Markdown ingestion, deterministic chunking, SQLite FTS5 indexing, and source-traceable lexical retrieval. The animal text is a controlled test input, not a trained model or a source of general world knowledge. The LLM answer-generation layer is not yet implemented.
+The local knowledge pipeline is implemented: checksum-verified Markdown ingestion, deterministic chunking, SQLite FTS5 indexing, and source-traceable lexical retrieval. A deterministic extractive answer engine now selects complete sentences from retrieved evidence and returns their source citations. It is a testable baseline, not an LLM and not general world knowledge. See [Engine Baseline](docs/02-design/ENGINE_BASELINE.md) for its architecture and limitations.
 
 ## Requirements
 
@@ -69,7 +69,7 @@ The first local knowledge implementation now includes:
 5. Ranked lexical retrieval with source-traceable results.
 6. Unit and end-to-end tests, plus a GitHub Actions test workflow.
 
-The next milestone is answer integration: use retrieved passages as evidence, cite them, and refuse unsupported questions.
+The next milestone is a real generative adapter, introduced only after the extractive baseline is tested and its grounding limits are measured.
 
 The first milestone does not require a hosted vector database, model fine-tuning, or runtime internet access. We will add infrastructure only when a demonstrated requirement calls for it.
 
