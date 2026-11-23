@@ -100,6 +100,7 @@ def main() -> int:
     parser.add_argument("--server-bin", default="llama-server")
     parser.add_argument("--port", type=int, default=8097)
     parser.add_argument("--startup-timeout", type=int, default=180)
+    parser.add_argument("--model", choices=["smollm2", "qwen2.5", "qwen3", "all"], default="smollm2", help="Candidate to test (default: smollm2)")
     args = parser.parse_args()
 
     server = args.server_bin
@@ -115,7 +116,9 @@ def main() -> int:
         "models": [],
     }
 
-    for index, (name, filename) in enumerate(CANDIDATES):
+    selected = CANDIDATES if args.model == "all" else [CANDIDATES[{"smollm2": 0, "qwen2.5": 1, "qwen3": 2}[args.model]]]
+
+    for index, (name, filename) in enumerate(selected):
         model_path = MODEL_DIR / filename
         if not model_path.is_file():
             print(f"Missing model: {model_path}\nRun scripts/models/download_candidates.sh first.", file=sys.stderr)
@@ -172,7 +175,7 @@ def main() -> int:
         OUTPUT.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     print(f"\nSaved raw results to {OUTPUT}")
-    print("Review answer correctness, abstention, Uzbek quality, and latency before choosing a default.")
+    print("Review answer correctness, abstention, instruction following, and latency before choosing a default.")
     return 0
 
 
