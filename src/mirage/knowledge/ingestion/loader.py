@@ -43,7 +43,7 @@ def load_markdown_source(
 
     while body_start < len(lines):
         line = lines[body_start].strip()
-        if not line or (line.startswith("**") and line.endswith("**")):
+        if not line or line.startswith("**"):
             body_start += 1
             continue
         break
