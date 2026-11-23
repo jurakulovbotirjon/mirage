@@ -98,6 +98,20 @@ class SQLiteKnowledgeStore:
             )
         return len(items)
 
+    def search_rows(self, expression: str, limit: int) -> list[sqlite3.Row]:
+        """Return ranked FTS matches joined with their provenance metadata."""
+        return self._connection.execute(
+            """
+            SELECT c.*, bm25(knowledge_chunks_fts) AS relevance
+            FROM knowledge_chunks_fts AS f
+            JOIN knowledge_chunks AS c ON c.chunk_id = f.chunk_id
+            WHERE knowledge_chunks_fts MATCH ?
+            ORDER BY relevance ASC
+            LIMIT ?
+            """,
+            (expression, limit),
+        ).fetchall()
+
     def count_chunks(self) -> int:
         row = self._connection.execute(
             "SELECT COUNT(*) AS count FROM knowledge_chunks"
