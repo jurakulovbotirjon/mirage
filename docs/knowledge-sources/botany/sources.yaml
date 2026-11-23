@@ -1,0 +1,49 @@
+schema_version: 1
+knowledge_domain: botany
+runtime_network_access: false
+sources:
+  - id: ha-morrow-algiers-botany
+    title: "Botany"
+    authors:
+      - "Melissa Ha"
+      - "Maria Morrow"
+      - "Kammy Algiers"
+    publisher: "ASCCC Open Educational Resources Initiative / LibreTexts"
+    source_url: "https://bio.libretexts.org/Bookshelves/Botany/Botany_(Ha_Morrow_and_Algiers)"
+    format_available: "full-book PDF"
+    license: "CC BY-NC 4.0, except where individual pages state otherwise"
+    role: primary
+    status: approved_candidate_not_yet_downloaded
+    local_path: "data/source_materials/originals/ha-morrow-algiers-botany.pdf"
+    sha256: null
+    retrieved_on: null
+    notes: "Check page-level attributions and exceptions before extracting or redistributing any content."
+
+  - id: umn-science-of-plants
+    title: "The Science of Plants: Understanding Plants and How They Grow"
+    authors:
+      - "Tom Michaels"
+      - "Matt Clark"
+      - "Emily Hoover"
+      - "Laura Irish"
+      - "Alan Smith"
+      - "Emily Tepe"
+    publisher: "University of Minnesota Department of Horticultural Science / University of Minnesota Libraries Publishing"
+    source_url: "https://open.lib.umn.edu/horticulture/"
+    publication_record: "https://publishing.lib.umn.edu/publication/the-science-of-plants/"
+    format_available: "PDF and EPUB"
+    license: "CC BY-NC 4.0, except where otherwise noted"
+    role: supporting
+    status: approved_candidate_not_yet_downloaded
+    local_path: "data/source_materials/originals/umn-the-science-of-plants.pdf"
+    sha256: null
+    retrieved_on: null
+    notes: "Developed for HORT 1001/6001. Check image and page-level credits before reuse."
+
+excluded_sources:
+  - id: openstax-biology-2e
+    title: "Biology 2e"
+    publisher: "OpenStax / Rice University"
+    source_url: "https://openstax.org/books/biology-2e/pages/index"
+    status: excluded_pending_written_permission
+    reason: "OpenStax states that ingestion into LLMs or generative AI offerings requires prior written permission."
