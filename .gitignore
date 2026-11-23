@@ -1,0 +1,3 @@
+# Large, licensed source textbooks are kept locally and never committed.
+data/source_materials/originals/*.pdf
+data/source_materials/originals/*.epub
