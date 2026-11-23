@@ -40,6 +40,12 @@ download \
   "Qwen3-0.6B-Q4_0.gguf" \
   "https://huggingface.co/ggml-org/Qwen3-0.6B-GGUF/resolve/main/Qwen3-0.6B-Q4_0.gguf"
 
+(
+  cd "$MODEL_DIR"
+  sha256sum ./*.gguf > SHA256SUMS
+)
+
 echo
 echo "All three candidate files are stored locally in: $MODEL_DIR"
+echo "Local integrity hashes saved to: $MODEL_DIR/SHA256SUMS"
 echo "They are intentionally excluded from Git. Keep separate backups of these weights."
