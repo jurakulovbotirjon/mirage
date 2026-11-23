@@ -18,7 +18,7 @@ The repository currently contains:
 - Documentation for candidate botanical sources and their licensing/provenance review.
 - A canonical repository-structure proposal in `docs/01-architecture/REPOSITORY_STRUCTURE.md`.
 
-The application runtime and knowledge ingestion/retrieval pipeline have **not yet been implemented**. The animal text is a controlled test input, not an indexed knowledge base.
+The first local knowledge pipeline is now implemented: checksum-verified Markdown ingestion, deterministic chunking, SQLite FTS5 indexing, and source-traceable lexical retrieval. The animal text is a controlled test input, not a trained model or a source of general world knowledge. The LLM answer-generation layer is not yet implemented.
 
 ## Requirements
 
@@ -60,15 +60,16 @@ ruff format --check .
 
 ## Planned first milestone: source-grounded knowledge
 
-The first implementation will progress through independently testable stages:
+The first local knowledge implementation now includes:
 
-1. Define source, document, chunk, and retrieval-result contracts.
-2. Read the existing test source without modifying the original.
-3. Normalize text while retaining source identity and location metadata.
-4. Split text into deterministic, traceable chunks.
-5. Persist and rebuild a small local index.
-6. Retrieve relevant chunks for a query.
-7. Test supported questions, unsupported questions, and source traceability.
+1. Immutable source, document, and chunk contracts.
+2. Local Markdown ingestion with SHA-256 provenance and path-traversal protection.
+3. Deterministic chunking with source character offsets.
+4. Transactional SQLite persistence and a local FTS5 full-text index.
+5. Ranked lexical retrieval with source-traceable results.
+6. Unit and end-to-end tests, plus a GitHub Actions test workflow.
+
+The next milestone is answer integration: use retrieved passages as evidence, cite them, and refuse unsupported questions.
 
 The first milestone does not require a hosted vector database, model fine-tuning, or runtime internet access. We will add infrastructure only when a demonstrated requirement calls for it.
 
