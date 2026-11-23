@@ -8,6 +8,7 @@ dist/
 
 # Virtual environments and local tooling
 .venv/
+.venv-modelscope/
 venv/
 .env
 .env.*
