@@ -35,7 +35,7 @@ The benchmark records four raw tests per model:
 - answer a fact that appears in a supplied passage;
 - abstain when the passage does not contain the answer;
 - solve a small arithmetic problem;
-- answer a short Uzbek question in Latin script.
+- follow a simple English instruction with strict output constraints.
 
 Results are written to `var/evaluations/candidate-results.json`. This is a screening benchmark, not a scientific leaderboard. We should manually inspect the outputs and measure actual speed on the target laptop before choosing a default. Tiny models may be poor at multi-step reasoning, long context, tool use, and nuanced conversation.
 
