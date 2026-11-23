@@ -52,7 +52,7 @@ def chunk_document(
                 # token by extending to its next whitespace boundary.
                 next_boundaries = [
                     position
-                    for separator in (" ", "\\n", "\\t", "\\r")
+                    for separator in (" ", "\n", "\t", "\r")
                     if (position := text.find(separator, proposed_end)) != -1
                 ]
                 end = min(next_boundaries) if next_boundaries else len(text)
