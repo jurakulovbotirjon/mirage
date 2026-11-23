@@ -1,0 +1,43 @@
+{
+  "policy": {
+    "inference": "local-only",
+    "model_weights_in_git": false,
+    "license_requirement": "Apache-2.0 for this initial bake-off"
+  },
+  "candidates": [
+    {
+      "id": "smollm2-360m-instruct-q4km",
+      "name": "SmolLM2 360M Instruct",
+      "parameters": "0.36B",
+      "repository": "lmstudio-community/SmolLM2-360M-Instruct-GGUF",
+      "filename": "SmolLM2-360M-Instruct-Q4_K_M.gguf",
+      "quantization": "Q4_K_M",
+      "approx_size_mb": 271,
+      "license": "Apache-2.0",
+      "model_card": "https://huggingface.co/lmstudio-community/SmolLM2-360M-Instruct-GGUF"
+    },
+    {
+      "id": "qwen2.5-0.5b-instruct-q4km",
+      "name": "Qwen2.5 0.5B Instruct",
+      "parameters": "0.49B",
+      "repository": "Qwen/Qwen2.5-0.5B-Instruct-GGUF",
+      "filename": "qwen2.5-0.5b-instruct-q4_k_m.gguf",
+      "quantization": "Q4_K_M",
+      "approx_size_mb": 491,
+      "license": "Apache-2.0",
+      "model_card": "https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF"
+    },
+    {
+      "id": "qwen3-0.6b-q4",
+      "name": "Qwen3 0.6B",
+      "parameters": "0.6B",
+      "repository": "ggml-org/Qwen3-0.6B-GGUF",
+      "filename": "Qwen3-0.6B-Q4_0.gguf",
+      "quantization": "Q4_0",
+      "approx_size_mb": 429,
+      "license": "Apache-2.0",
+      "model_card": "https://huggingface.co/ggml-org/Qwen3-0.6B-GGUF",
+      "upstream_model_card": "https://huggingface.co/Qwen/Qwen3-0.6B"
+    }
+  ]
+}
