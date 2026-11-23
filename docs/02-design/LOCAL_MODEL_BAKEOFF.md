@@ -14,12 +14,14 @@ Sizes are approximate and can change with repository revisions. The SmolLM2 GGUF
 
 ## Download
 
-The downloader uses ModelScope only as a file source. Mirage does not call an online inference API. After download, inference can run offline. The ModelScope CLI is only a transfer utility; it is not the model runtime.
+The first stage starts with SmolLM2 only. The downloader uses ModelScope only as a file source; Mirage does not call an online inference API. After download, inference can run offline. The ModelScope CLI is only a transfer utility, not the model runtime.
 
 ```bash
 chmod +x scripts/models/download_candidates.sh
 ./scripts/models/download_candidates.sh
 ```
+
+This downloads **SmolLM2 only** by default. Use `./scripts/models/download_candidates.sh --all` later if we decide to compare the other two.
 
 The script uses the ModelScope CLI to fetch only the selected GGUF files. Total download is roughly 1.2 GB. It does not install an inference service or send prompts to a hosted model. Install the CLI in an isolated virtual environment as shown by the script.
 
@@ -31,7 +33,7 @@ Build or install the `llama.cpp` runtime separately and make `llama-server` avai
 python scripts/models/benchmark_candidates.py
 ```
 
-The benchmark records four raw tests per model:
+The benchmark tests SmolLM2 by default. Add `--model all` to run all three candidates later. It records four English-only tests:
 - answer a fact that appears in a supplied passage;
 - abstain when the passage does not contain the answer;
 - solve a small arithmetic problem;
