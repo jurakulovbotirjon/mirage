@@ -47,6 +47,15 @@ def chunk_document(
             )
             if boundary > cursor:
                 end = boundary
+            else:
+                # The first token itself exceeds max_chars. Preserve the whole
+                # token by extending to its next whitespace boundary.
+                next_boundaries = [
+                    position
+                    for separator in (" ", "\\n", "\\t", "\\r")
+                    if (position := text.find(separator, proposed_end)) != -1
+                ]
+                end = min(next_boundaries) if next_boundaries else len(text)
 
         # Do not emit empty chunks if a boundary falls directly at the cursor.
         if end <= cursor:
