@@ -1,3 +1,35 @@
+# Python bytecode and package/build artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.wheels/
+
+# Virtual environments and local tooling
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.python-version
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# IDE and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local runtime data and generated knowledge artifacts
+data/runtime/
+*.sqlite3
+*.db
+
 # Large, licensed source textbooks are kept locally and never committed.
 data/source_materials/originals/*.pdf
 data/source_materials/originals/*.epub
