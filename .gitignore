@@ -33,3 +33,7 @@ data/runtime/
 # Large, licensed source textbooks are kept locally and never committed.
 data/source_materials/originals/*.pdf
 data/source_materials/originals/*.epub
+
+# Downloaded model weights and local evaluation outputs (never commit binaries)
+var/models/
+var/evaluations/
